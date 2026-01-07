@@ -1,0 +1,108 @@
+/* Suggested Proposal Trigger - Matches Bubble HTML element */
+
+/* Wrapper - positioned in header, uses flexbox for alignment */
+.sp-trigger-wrapper {
+  display: inline-flex;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Label - slides in from right */
+.sp-trigger-label {
+  font-size: 14px;
+  font-weight: 600;
+  background: #DFDFF6;
+  color: #31135D;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #31135D;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.sp-trigger-label.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Button - circular with lightbulb icon */
+.sp-trigger-btn {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #DFDFF6;
+  border: 1px solid #31135D;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.sp-trigger-btn:hover {
+  background: #E6E6FA;
+}
+
+.sp-trigger-btn:focus {
+  outline: 2px solid #31135D;
+  outline-offset: 2px;
+}
+
+.sp-trigger-btn svg {
+  width: 28px;
+  height: 28px;
+  stroke: #31135D;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.sp-trigger-btn.active svg {
+  transform: rotate(180deg);
+}
+
+/* Badge for proposal count */
+.sp-trigger-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #EF4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Pulse animation for new proposals */
+@keyframes sp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(49, 19, 93, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(49, 19, 93, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(49, 19, 93, 0);
+  }
+}
+
+.sp-trigger-btn.has-proposals {
+  animation: sp-pulse 2s infinite;
+}

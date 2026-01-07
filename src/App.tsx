@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SuggestedProposalPopup } from './components';
+import { SuggestedProposalPopup, SuggestedProposalTrigger } from './components';
 import { useSuggestedProposals } from './hooks';
 import { mockProposals } from './utils/mockData';
 import './App.css';
@@ -58,16 +58,14 @@ function App() {
           <button className="demo-nav-item">Listings</button>
           <button className="demo-nav-item">My Proposals</button>
           <button className="demo-nav-item">Messages</button>
-          <button
-            className="demo-notification-btn"
-            onClick={show}
-            aria-label="Show suggested proposals"
-          >
-            <span className="demo-bell-icon">{'\uD83D\uDD14'}</span>
-            {totalProposals > 0 && (
-              <span className="demo-badge">{totalProposals}</span>
-            )}
-          </button>
+          <SuggestedProposalTrigger
+            onClick={isVisible ? hide : show}
+            isActive={isVisible}
+            proposalCount={totalProposals}
+            showLabelOnMount={true}
+            labelDelay={3000}
+            labelDuration={5000}
+          />
         </nav>
       </header>
 
@@ -77,7 +75,8 @@ function App() {
           <h1>Suggested Proposals Component Demo</h1>
           <p>
             This demo showcases the Suggested Proposal popup component for Split Lease.
-            Click the notification bell in the header to view suggested proposals.
+            Click the lightbulb button in the header to view suggested proposals.
+            Wait 3 seconds to see the animated label appear!
           </p>
           <button className="demo-cta" onClick={show}>
             View Suggested Proposals ({totalProposals})
@@ -87,13 +86,14 @@ function App() {
         <div className="demo-info">
           <h2>Component Features</h2>
           <ul>
+            <li>Animated trigger button with slide-in label</li>
             <li>Browse through multiple suggested proposals</li>
             <li>View property photos, amenities, and pricing</li>
             <li>See location on map with address</li>
             <li>Read AI-generated proposal summaries</li>
             <li>Express interest or remove proposals</li>
+            <li>Click outside popup to close (Group Focus)</li>
             <li>Keyboard navigation (Arrow keys, Escape)</li>
-            <li>Responsive design for all screen sizes</li>
           </ul>
         </div>
       </main>
