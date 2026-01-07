@@ -40,6 +40,18 @@
   --sp-shadow-card: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Backdrop - full screen overlay that closes popup when clicked (Group Focus behavior) */
+.sp-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  cursor: pointer;
+}
+
 /* Main popup overlay */
 .sp-popup-overlay {
   position: fixed;

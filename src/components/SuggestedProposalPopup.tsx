@@ -103,7 +103,19 @@ export const SuggestedProposalPopup: React.FC<Props> = ({
 
   return (
     <>
-      <div className="sp-popup-overlay" role="dialog" aria-modal="true" aria-label="Suggested Proposal">
+      {/* Backdrop - clicking here closes the popup (Group Focus behavior) */}
+      <div
+        className="sp-popup-backdrop"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div
+        className="sp-popup-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Suggested Proposal"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="sp-card">
           {/* Header */}
           <header className="sp-header">
