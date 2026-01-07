@@ -1,0 +1,37 @@
+{
+  "name": "suggested-proposals",
+  "version": "1.0.0",
+  "description": "Reusable Suggested Proposal popup component for Split Lease",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite --port 8000",
+    "build": "vite build",
+    "preview": "vite preview --port 8000",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "proposal",
+    "split-lease"
+  ],
+  "author": "Split Lease",
+  "license": "MIT"
+}

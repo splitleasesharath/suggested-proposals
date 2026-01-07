@@ -1,0 +1,264 @@
+/* Demo App Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.demo-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Demo Header */
+.demo-header {
+  background: #250856;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.demo-logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.demo-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.demo-nav-item {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.demo-nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.demo-notification-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.demo-notification-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.demo-bell-icon {
+  font-size: 18px;
+}
+
+.demo-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #EF4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Demo Main Content */
+.demo-main {
+  flex: 1;
+  padding: 60px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.demo-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.demo-hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.demo-hero p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.demo-cta {
+  background: #250856;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.demo-cta:hover {
+  background: #1a0640;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 8, 86, 0.3);
+}
+
+/* Demo Info Section */
+.demo-info {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.demo-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+.demo-info ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.demo-info li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #444;
+}
+
+.demo-info li::before {
+  content: '\2713';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #E8F5E9;
+  color: #22C55E;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Toast Notifications */
+.demo-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2000;
+}
+
+.demo-toast {
+  background: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.demo-toast-success {
+  border-left: 4px solid #22C55E;
+}
+
+.demo-toast-error {
+  border-left: 4px solid #EF4444;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .demo-header {
+    padding: 12px 16px;
+  }
+
+  .demo-nav {
+    gap: 12px;
+  }
+
+  .demo-nav-item {
+    display: none;
+  }
+
+  .demo-main {
+    padding: 40px 16px;
+  }
+
+  .demo-hero h1 {
+    font-size: 28px;
+  }
+
+  .demo-hero p {
+    font-size: 16px;
+  }
+
+  .demo-info {
+    padding: 24px;
+  }
+
+  .demo-info ul {
+    grid-template-columns: 1fr;
+  }
+}
